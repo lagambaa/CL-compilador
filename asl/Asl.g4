@@ -35,6 +35,7 @@
 
 > problemes:
         - (SOLUCIONAT) arreglar la propagacio de errorTy (al principi asumies tipus)
+        - (SOLUCIONAT) wrong AND/OR precendece
 
 > coses que puc afegir per practicar:
         - arrays n-dim
@@ -133,7 +134,8 @@ expr    : op=(PLUS|SUB|NOT) expr              # negate
         | expr op=(MUL|DIV|MOD) expr          # arithmetic 
         | expr op=(PLUS|SUB) expr             # arithmetic
         | expr op=(EQUAL|LT|GT|LE|GE|NE) expr # relational
-        | expr op=(AND|OR|XOR) expr           # logical
+        | expr op=AND expr                    # logical
+        | expr op=(OR|XOR) expr               # logical
         | ident OCOR expr CCOR                # arrayAccess
         // procCall no fa servir el return value pero functionCall si
         | ident OPAR args? CPAR               # functionCall
